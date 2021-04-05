@@ -1,11 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 ## OMIMP
-## Andrew Anastasiades
+## ANDREW ANASTSIADES
 
 #  O   M   I   M   P  
 #  H   A       I   A  
@@ -14,27 +8,15 @@
 #                  A
 #                  S
 
-
-# In[2]:
-
-
-##Dependencies
+## DEPENDENCIES
 import os
 import csv
 
-
-# In[25]:
-
-
-##File Path Parameters
+## FILE PATHS
 budget_data_path = os.path.join("Resources", "budget_data.csv") #Budget Data File Path
 results_file_path = os.path.join("Analysis","Financial Analysis.txt")
 
-
-# In[4]:
-
-
-##READ FILE
+## READ FILE
 data_list = list() #List to hold rows #OMIMP
 with open(budget_data_path) as budget_file:
     csvreader = csv.reader(budget_file, delimiter=',') #Reader Object
@@ -43,32 +25,20 @@ with open(budget_data_path) as budget_file:
         data_list.append(row)
     #Now we can close File
 
-
-# In[55]:
-
-
 ## ANALYZE DATA
 # List Comprehensions to make life easier
 month_list = [row[0] for row in data_list] #MONTHS
 income_values = [int(row[1]) for row in data_list] #INCOME
 changes = [income_values[i]-income_values[i-1] for i in range(1, len(income_values))] #CHANGES
-
+# Return Values
 total_months = len(month_list)
 total_income = sum(income_values)
-
-
 average_change = sum(changes) / len(changes)
-greatest = max(changes)
-least = min(changes)
+# NOTE: you have to add one to month index bcause first month has no change
+greatest_increase = [month_list[changes.index(max(changes))+1], max(changes)] 
+greatest_decrease = [month_list[changes.index(min(changes))+1], min(changes]
 
-greatest_increase = [month_list[changes.index(greatest)+1], greatest] # you have to add one to month index bcause first month has no change
-greatest_decrease = [month_list[changes.index(least)+1], least] # [month , change]
-
-
-# In[56]:
-
-
-##WRITE RESULTS 
+## WRITE RESULTS 
 with open(results_file_path, "w") as results:
     
     results.write(f"Financial Analysis")
@@ -92,4 +62,3 @@ with open(results_file_path, "w") as results:
     results.write(f"Greatest Decrease in Profits: {greatest_decrease[0]} (${greatest_decrease[1]})")
     print(f"Greatest Decrease in Profits: {greatest_decrease[0]} (${greatest_decrease[1]})")
     
-
