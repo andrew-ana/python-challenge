@@ -1,7 +1,7 @@
-### OHMIMP
-# Oh Man I Miss Pandas
-# Andrew Anastasiades
-# @andrew-ana
+# OHMIMP
+### Oh Man I Miss Pandas
+### Andrew Anastasiades
+### @andrew-ana
 
 #Notes
 -Included are two basic scripts that demonstrate Vanilla File I/O in Python. Both take .csv inputs and produce .txt outputs.
