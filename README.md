@@ -1,6 +1,6 @@
 # OHMIMP
-  Oh Man I Miss Pandas
-  Andrew Anastasiades
+  Oh Man I Miss Pandas |
+  Andrew Anastasiades |
   @andrew-ana
 
 ---
