@@ -37,7 +37,11 @@ votes_by_cand = [cand_list.count(candidate) for candidate in candidates] #Make a
 percent_by_cand = [(votes/total_votes)*100 for votes in votes_by_cand] #Make a list of %s
 #Let's Consolidate the lists so we can sort (also I am now formatting my %s)
 result_list = [[candidates[i], votes_by_cand[i], "{:.3f}".format(percent_by_cand[i])] for i in range(len(candidates))]
-sorted_results = sorted(result_list, key=lambda x : x[1], reverse=True) #Ok, I admit we haven't covered lamba yet
+#Ok, I admit we haven't covered lamba yet, but this is an easy way to sort a list of lists.
+#   If I HAVE to use only what we've covered so far I could build a dictionary or 
+#   find the max value of the vote list and pop that from each of the lists, then reiterate through,
+#   popping that max value. But is that really worth the time?
+sorted_results = sorted(result_list, key=lambda x : x[1], reverse=True)
 winner = sorted_results[0][0]
 
 ##WRITE RESULTS 
